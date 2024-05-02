@@ -10,6 +10,7 @@ python = "^3.11"
 
 [tool.poetry.scripts]
 calculator = 'calculadora.main:main'
+dist = 'setup:main'
 
 [tool.poetry.group.dev.dependencies]
 cx-freeze = "^7.0.0"
