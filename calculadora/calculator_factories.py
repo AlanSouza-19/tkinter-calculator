@@ -7,6 +7,7 @@ def make_root() -> tk.Tk:
     root.title('Calculator')
     root.config(padx=10, pady=10, background='#fff')
     root.resizable(False, False)
+    root.iconbitmap('icons/calculator-icon.ico')
     return root
 
 def make_label(root) -> tk.Label:
