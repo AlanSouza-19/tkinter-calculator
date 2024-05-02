@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "calculadora"
 version = "0.1.1"
-description = ""
+description = "Calculadora feita em python com a lib TKinter"
 authors = ["AlanSouza-19 <souzaalanc75@gmail.com>"]
 readme = "README.md"
 
@@ -10,6 +10,9 @@ python = "^3.11"
 
 [tool.poetry.scripts]
 calculator = 'calculadora.main:main'
+
+[tool.poetry.group.dev.dependencies]
+cx-freeze = "^7.0.0"
 
 [build-system]
 requires = ["poetry-core"]
