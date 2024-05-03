@@ -1,6 +1,6 @@
 from calculadora.calculator_factories import make_root, make_display, make_buttons, make_label
 from calculadora.calculator_class import Calculator
-import tkinter as tk
+
 
 def main():
     root = make_root()

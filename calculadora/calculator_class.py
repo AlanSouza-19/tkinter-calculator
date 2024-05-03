@@ -1,14 +1,17 @@
 import tkinter as tk
+import customtkinter as ctk
 from typing import List
 import re
 import math
 
+
 class Calculator:
     def __init__(self, root, label, display, buttons):
+        ctk.set_appearance_mode('light')
         self.root: tk.Tk = root
-        self.label: tk.Label = label
-        self.display: tk.Entry = display
-        self.buttons: List[List[tk.Button]] = buttons
+        self.label: ctk.CTkLabel = label
+        self.display: ctk.CTkEntry = display
+        self.buttons: List[List[ctk.CTkButton]] = buttons
             
     def start(self):
         self._config_button()
@@ -18,13 +21,12 @@ class Calculator:
     def _config_button(self):
         for row_values in self.buttons:
             for button in  row_values:
-                button_text = button['text']
+                button_text = button.cget('text')
                 
                 if button_text == 'C':
                     button.bind('<Button-1>', self.clear)
-                    button.config(
-                        bg='#EA4335',
-                        fg='#fff'
+                    button.configure(
+                        #fg_color='#EA4335'
                     )
                 
                 if button_text in '0123456789.+-/*()^':
@@ -32,9 +34,8 @@ class Calculator:
 
                 if button_text in '=':
                     button.bind('<Button-1>', self.calculate)
-                    button.config(
-                        bg='#4785f4',
-                        fg='#fff'
+                    button.configure(
+                        #fg_color='#4785f4'
                     )
     
     def _config_display(self):
@@ -70,13 +71,13 @@ class Calculator:
                     result = math.pow(result, eval(self._fix_text(equation)))
             self.display.delete(0, 'end')
             self.display.insert('end', result)
-            self.label.config(text=f'{fixed_text} = {result}')
+            self.label.configure(text=f'{fixed_text} = {result}')
                     
         except OverflowError:
-            self.label.config(text='Error')
+            self.label.configure(text='Error')
 
         except Exception:
-            self.label.config(text='Error')
+            self.label.configure(text='Error')
 
     def _get_equations(self, text):
         return re.split(r'\^', text, 0)
