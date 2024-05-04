@@ -7,7 +7,6 @@ import math
 
 class Calculator:
     def __init__(self, root, label, display, buttons):
-        ctk.set_appearance_mode('dark')
         self.root: tk.Tk = root
         self.label: ctk.CTkLabel = label
         self.display: ctk.CTkEntry = display
@@ -38,6 +37,7 @@ class Calculator:
         self.root.bind('(', lambda e: self.add_text_to_display('('))
         self.root.bind(')', lambda e: self.add_text_to_display(')'))
         self.root.bind('<BackSpace>', lambda e: self.clear_last_number(self.display.get()))
+        self.root.bind('<Return>', self.calculate)
     
     def _config_button(self):
         for row_values in self.buttons:
