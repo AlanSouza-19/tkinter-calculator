@@ -31,7 +31,9 @@ def make_display(root) -> ctk.CTkEntry:
     display.configure(
         font = ('Helvetica', 40, 'bold'),
         justify='right',
-        state='disable'        
+        state='disable',
+        fg_color='#242424',
+        border_color='#242424'
     )
     display.bind('<Control-a>', display_control_a)
     return display
@@ -63,13 +65,10 @@ def make_buttons(root) -> List[List[ctk.CTkButton]]:
                 pady = 2
             )
             btn.configure(
-                font = ('Helvetica', 15, 'bold'),
-                #fg_color = '#f1f2f3',
-                #hover_color='#ccc',
-                cursor = 'hand2',
-                width=50,
+                font=('Helvetica', 17, 'bold'),
+                cursor='hand2',
+                width=70,
                 height=50,
-                #text_color='black'
             )
             button_row.append(btn)
         buttons.append(button_row)
