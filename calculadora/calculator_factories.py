@@ -8,7 +8,8 @@ def make_root() -> tk.Tk:
     root.title('Calculator')
     root.configure(padx=10, pady=10, background='#fff')
     root.resizable(False, False)
-    root.iconbitmap('icons/calculator-icon.ico')
+    #roor.iconbitmap('./icons/calculator-icon.ico') // only works on windows
+    root.iconphoto(True, tk.PhotoImage(file='./icons/calculator-icon.png'))
     return root
 
 def make_label(root) -> ctk.CTkLabel:
